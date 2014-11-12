@@ -2,7 +2,7 @@ require 'pry'
 
 module Prct07 
 	class SimpleExpec < Preg
-		attr_accessor :text, :right, :distractor
+		attr_accessor :right, :distractor
 	 def initialize(args)
 		super(args[:text])
 		@right = args[:right]
@@ -24,6 +24,9 @@ module Prct07
 	 end
 	 def to_s
 	     "#{@text}#{@right}#{@distractor}"
+	 end
+	 def <=>(other)
+	 	distractor.size <=> other.distractor.size
 	 end
 	end
 end

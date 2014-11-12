@@ -4,7 +4,7 @@ require 'prct07'
 #introducir todas las preguntas hechas practica anterior
 #describe Prct07 do
 
-describe Prct07::SimpleExpec do
+    describe Prct07::SimpleExpec do
             before :each do
 		
 			@lista_doble = Prct07::Lista_doble.new
@@ -17,7 +17,7 @@ describe Prct07::SimpleExpec do
 	        @nodo1=Prct07::Nodo.new(@preg1, nil,nil)    
             end	
 
-end
+    end
     describe Prct07::VerdFals do
         
  				@preg2=Prct07::VerdFals.new(
@@ -29,8 +29,8 @@ end
     end
  	           
  	           
-    describe Prct07::Lista_doble do
-         before :each do
+describe Prct07::Lista_doble do
+  before :each do
 		
 			@lista_doble = Prct07::Lista_doble.new
              
@@ -90,22 +90,120 @@ end
  				
  			@nodo6=Prct07::Nodo.new(@preg6, nil,nil)
  				
-            end	
-  	 context "Creacion de lista;" do
-  	     it"Empujamos al principio" do
+        end	
+  	context "Creacion de lista;" do
+  	      it"Empujamos al principio" do
   	         
-  	     @lista_doble.push_principio(@nodo1)
-  	     @lista_doble.push_principio(@nodo2)
-  	     @lista_doble.push_principio(@nodo3)
-  	     @lista_doble.push_principio(@nodo4)
-  	     @lista_doble.push_principio(@nodo5)
-  	     end 
-  	     it"Eliminamos al final" do
-  	     @lista_doble.pop_final
-  	     end
-  	     it "existe un metodo insertar_mitad_delante" do
- 		 expect(@lista_doble).to respond_to :insertar_mitad_delante
-         end
- 	     
-     end
+  	      @lista_doble.push_principio(@nodo1)
+  	      @lista_doble.push_principio(@nodo2)
+  	      @lista_doble.push_principio(@nodo3)
+  	      @lista_doble.push_principio(@nodo4)
+  	      @lista_doble.push_principio(@nodo5)
+  	      @lista_doble.push_principio(@nodo6)
+  	      end 
+  	      it"Eliminamos al final" do
+  	      @lista_doble.pop_final
+  	      end
+  	      it "existe un metodo insertar_mitad_delante" do
+ 		  expect(@lista_doble).to respond_to :insertar_mitad_delante
+          end
     end
+     context "Pruebas de la clase SimpleExpec con Comparable \n" do
+             it "Pertenece la pregunta a la clase SimpleExpec" do
+                 expect(@preg1.class) ==  Prct07::SimpleExpec
+             end
+             it "Comprueba que la pregunta preg1 tenga menos opciones erroneas que la pregunta preg3" do
+		         expect(@preg1.distractor <=> @preg3.distractor).to eq(1)
+	         end
+	    
+	         it "Comprueba que la pregunta preg1 tenga las mismas opciones erroneas que la pregunta preg5" do
+		        expect(@preg1.distractor == @preg5.distractor).to eq(false)
+	         end
+	    
+	         it "Comprueba que la pregunta preg3 tenga menos opciones que la pregunta preg5" do
+		        expect(@preg3 <=> @preg5).to eq(0)
+	         end
+        #      it""do
+        #      end
+        #      it ""do
+        #      end
+        #      it ""do 
+        #      end
+    end
+    context "Pruebas para la clase VerdFals con Comparable\n" do
+        
+        it "Pertenece la pregunta a la clase VerdFals" do
+                expect(@preg2.class) == Prct07::VerdFals
+        end
+            
+	    it "Debe tener una respuesta correcta" do
+               expect(@preg2.verd) == ['Cierto']	       
+	    end
+	    
+        it "Debe tener unas opciones incorrectas" do
+               expect(@preg2.fals) == 'Falso'	       
+	    end
+	    
+	    it "Debe tener un metodo to_s" do
+               expect(@preg2).to respond_to :to_s       
+	    end
+	    
+	    it "Comprueba que la pregunta preg2 tenga las mismas opciones correctas que la pregunta preg4" do
+		expect(@preg2 == @preg4).to eq(false)
+	    end
+            # it "" do
+            # end
+    end
+    context "Pruebas para la clase Lista_doble con Enumerable \n" do
+	    
+	    it "Es de la clase Lista_doble" do
+                 expect(@nodo1.class) == Prct07::Lista_doble      
+	    end
+	    
+	    it "Debe existir un Nodo de la lista con sus datos, su siguiente y su anterior" do
+	         expect(@lista_doble.head != nil && @lista_doble.siguiente == nil && @lista_doble.anterior == nil) 
+	    end
+	       
+	    it "Insertamos nodos en la lista" do
+            @lista_doble.push_principio(@nodo1)
+            expect(@lista_doble.head) == (@nodo1)
+        end
+                
+        it "Insertamos varios elementos por el principio" do
+            @lista_doble.push_principio(@nodo1)
+            @lista_doble.push_principio(@nodo2)
+            expect(@lista_doble.head) == (@nodo2)
+        end
+		
+		it "Se insertan varios elementos por el final" do
+            @lista_doble.push_final(@nodo1)
+            @lista_doble.push_final(@nodo2)
+            expect(@lista_doble.ultcola) == (@nodo1)
+        end
+
+	    it "Se extrae el primer elemento de la lista" do
+		    @lista_doble.push_principio(@nodo1)
+            @lista_doble.push_principio(@nodo2)
+            @lista_doble.pop_principio()
+            expect(@lista_doble.head) == (@nodo2)	
+	    end
+		
+		it "Se extrae el ultimo elemento de la lista" do
+		    @lista_doble.push_final(@nodo1)
+            @lista_doble.push_final(@nodo2)
+            @lista_doble.pop_final
+            expect(@lista_doble.ultcola) == (@nodo2)	
+	    end
+		
+		it "Se inserta por el final de la lista" do
+		    @lista_doble.push_final(@nodo1)
+            @lista_doble.push_final(@nodo2)
+            expect(@lista_doble.ultcola) == (@nodo2)	
+	    end
+		
+		it "Se puede hacer un each" do
+		    @lista_doble.each{|i| i}
+		end
+		
+	end
+end
