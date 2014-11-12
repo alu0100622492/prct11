@@ -1,4 +1,5 @@
 module Prct07
+    include Enumerable 
 
   Nodo = Struct.new(:valor, :siguiente,:anterior)
 
@@ -14,8 +15,16 @@ module Prct07
     end
     
     
+    def each()
+        temp=@head
+        while temp != nil
+        yield temp.valor
+        temp=temp.siguiente 
+        end
+    end
+    
     def push_principio(args)
-      if @head= nil 
+      if @head== nil 
 	head=args
       else
 	args.siguiente = head
@@ -25,7 +34,7 @@ module Prct07
    
    
     def push_final(args)
-        if @ultcola= nil
+        if @ultcola== nil
             ultcola=args
         else
             args.anterior = ultcola
