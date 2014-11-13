@@ -11,8 +11,12 @@ module Prct07
 	 def to_s
 	     "#{@text}#{@verd}#{@fals}"
 	 end
-	 def <=>(other)
-	 	verd.size <=> other.verd.size
+	 def <=(other)
+	 	verd.size <= other.verd.size
+	 end
+	 
+	 def >= (other)
+	 	verd.size >= other.verd.size
 	 end
     end
      

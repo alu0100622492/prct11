@@ -1,9 +1,11 @@
 module Prct07
-    include Enumerable 
+     
 
   Nodo = Struct.new(:valor, :siguiente,:anterior)
 
   class Lista_doble 
+      
+      include Enumerable
     #cabeza = head ultelem = ultcola
     
     attr_accessor :head, :ultcola,:valor, :siguiente, :anterior

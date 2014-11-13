@@ -108,28 +108,32 @@ describe Prct07::Lista_doble do
  		  expect(@lista_doble).to respond_to :insertar_mitad_delante
           end
     end
+     
+     
      context "Pruebas de la clase SimpleExpec con Comparable \n" do
              it "Pertenece la pregunta a la clase SimpleExpec" do
                  expect(@preg1.class) ==  Prct07::SimpleExpec
              end
-             it "Comprueba que la pregunta preg1 tenga menos opciones erroneas que la pregunta preg3" do
-		         expect(@preg1.distractor <=> @preg3.distractor).to eq(1)
+	         
+	         
+	         it "Comprueba que la pregunta preg1 tenga mas opciones erroneas que la pregunta preg3" do
+		         expect(@preg1 <= @preg3).to eq(true)
 	         end
 	    
 	         it "Comprueba que la pregunta preg1 tenga las mismas opciones erroneas que la pregunta preg5" do
-		        expect(@preg1.distractor == @preg5.distractor).to eq(false)
+		        expect(@preg1 == @preg5).to eq(false)
 	         end
 	    
 	         it "Comprueba que la pregunta preg3 tenga menos opciones que la pregunta preg5" do
-		        expect(@preg3 <=> @preg5).to eq(0)
+		        expect(@preg3 >= @preg5).to eq(true)
 	         end
-        #      it""do
-        #      end
-        #      it ""do
-        #      end
-        #      it ""do 
-        #      end
+
     end
+    
+   
+   
+   
+    
     context "Pruebas para la clase VerdFals con Comparable\n" do
         
         it "Pertenece la pregunta a la clase VerdFals" do
@@ -148,62 +152,91 @@ describe Prct07::Lista_doble do
                expect(@preg2).to respond_to :to_s       
 	    end
 	    
+	    it "Comprueba que la pregunta preg2 tenga menos opciones correctas que la pregunta preg6" do
+		expect(@preg2 <= @preg6).to eq(true)
+	    end
+	    
 	    it "Comprueba que la pregunta preg2 tenga las mismas opciones correctas que la pregunta preg4" do
 		expect(@preg2 == @preg4).to eq(false)
 	    end
-            # it "" do
-            # end
+	    
+	    it "Comprueba que la pregunta preg2 tenga mas opciones correctas que la pregunta preg6" do
+		expect(@preg6 >= @preg2).to eq(true)
+	    end
     end
+    
+
+
+
+
+
+
     context "Pruebas para la clase Lista_doble con Enumerable \n" do
 	    
 	    it "Es de la clase Lista_doble" do
                  expect(@nodo1.class) == Prct07::Lista_doble      
 	    end
 	    
-	    it "Debe existir un Nodo de la lista con sus datos, su siguiente y su anterior" do
+	    it "Existe un Nodo de la lista con sus datos, su siguiente y su anterior" do
 	         expect(@lista_doble.head != nil && @lista_doble.siguiente == nil && @lista_doble.anterior == nil) 
 	    end
 	       
-	    it "Insertamos nodos en la lista" do
+	    it "Insertar nodos en la lista" do
             @lista_doble.push_principio(@nodo1)
             expect(@lista_doble.head) == (@nodo1)
         end
                 
-        it "Insertamos varios elementos por el principio" do
+        it "Insertar varios elementos por el principio" do
             @lista_doble.push_principio(@nodo1)
             @lista_doble.push_principio(@nodo2)
             expect(@lista_doble.head) == (@nodo2)
         end
 		
-		it "Se insertan varios elementos por el final" do
+		it "Insertar varios elementos por el final" do
             @lista_doble.push_final(@nodo1)
             @lista_doble.push_final(@nodo2)
             expect(@lista_doble.ultcola) == (@nodo1)
         end
 
-	    it "Se extrae el primer elemento de la lista" do
+	    it "Extraer el primer elemento de la lista" do
 		    @lista_doble.push_principio(@nodo1)
             @lista_doble.push_principio(@nodo2)
             @lista_doble.pop_principio()
             expect(@lista_doble.head) == (@nodo2)	
 	    end
 		
-		it "Se extrae el ultimo elemento de la lista" do
+		it "Extrar el ultimo elemento de la lista" do
 		    @lista_doble.push_final(@nodo1)
             @lista_doble.push_final(@nodo2)
             @lista_doble.pop_final
             expect(@lista_doble.ultcola) == (@nodo2)	
 	    end
 		
-		it "Se inserta por el final de la lista" do
+		it "Insertar por el final de la lista" do
 		    @lista_doble.push_final(@nodo1)
             @lista_doble.push_final(@nodo2)
             expect(@lista_doble.ultcola) == (@nodo2)	
 	    end
 		
-		it "Se puede hacer un each" do
+		it "Metodo each con el metodo Enumerable" do
 		    @lista_doble.each{|i| i}
 		end
 		
+		it "Metodo count con el metodo Enumerable" do
+		   expect( @lista_doble.count).to eq(0)
+		end
+		
+		it "Metodo all con el metodo Enumerable" do
+		    expect(@lista_doble.all?).to eq(true)
+		end
+		
+		it "Metodo max con el metodo Enumerable" do
+		    expect(@lista_doble.max).to eq(nil)
+		end
+		
 	end
+
+
+
+
 end

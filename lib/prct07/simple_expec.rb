@@ -25,8 +25,13 @@ module Prct07
 	 def to_s
 	     "#{@text}#{@right}#{@distractor}"
 	 end
-	 def <=>(other)
-	 	distractor.size <=> other.distractor.size
+	 
+	 def <= (other)
+	 	distractor.size <= other.distractor.size
+	 end
+	
+	 def >= (other)
+	 	distractor.size >= other.distractor.size
 	 end
 	end
 end
