@@ -4,7 +4,7 @@ module Prct07
         attr_accessor :examen, :nota, :datos_user
   
     def initialize()
-      @examen=Prct07::Exam.new
+      @examen= Prct07::Exam.new()
       @nota = 0
     end 
     
@@ -29,7 +29,7 @@ module Prct07
 	respuesta = gets.chomp
 	if sacalista.right(respuesta) || sacalista.verd(respuesta)
 	 puts "La respuesta es correcta"
-	  nota+=2
+	  nota+=2.5
 	else
 	  puts "La respuesta es incorrecta"
 	end

@@ -46,16 +46,18 @@ module Prct07
 # 	 nuevo.anterior=aux2
 #      end
 # end
+
+
     def push_principio(args)
-      if @head == nil 
-	@head=args
-      else
-	args.siguiente = @head
-	@head.anterior = args
-	@head = args
-	args.anterior = nil
-	#puts "push_p"
-      end
+#       if @head == nil 
+# 	@head=args
+#       else
+# 	args.siguiente = @head
+# 	#@head.anterior = args
+# 	#@head = args
+# 	args.anterior = nil
+# 	#puts "push_p"
+#       end
     end 
    
    
@@ -76,7 +78,7 @@ module Prct07
     def pop_principio()
       if @head != nil
 	elimina = @head
-	@head = @head.siguiente  
+	#@head = @head.siguiente  
 	@head.anterior = nil
 	elimina.siguiente = nil
 	elimina.valor
@@ -87,6 +89,8 @@ module Prct07
       end
     end
    
+    
+    
     def pop_final()
       if (@ultcola!= nil)#si la lista tiene mas de un elemento
 	    aux = @ultcola

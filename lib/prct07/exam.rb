@@ -6,7 +6,7 @@ module Prct07
         
     attr_accessor :lista_enlazada
       
-    nodo = Struct.new(:valor, :antes,:siguiente )
+   Nodo = Struct.new(:valor, :antes,:siguiente )
      
     def initialize
 	    @lista_enlazada=Prct07::Lista_doble.new
@@ -45,20 +45,20 @@ module Prct07
  				      }", :verd => "Cierto", 
  				      :fals => "Falso" )
  				
- 	@nodo1=nodo.new(@preg1, nil,nil)
- 	@nodo2=nodo.new(@preg2, nil,nil)
-	@nodo3=nodo.new(@preg3, nil,nil)
- 	@nodo4=nodo.new(@preg4, nil,nil)
-	@lista_enlazada.push_principio(nil, @nodo1)
- 	@lista_enlazada.push_principio(@nodo1, @nodo2)					
-  	@lista_enlazada.push_principio(@nodo2, @nodo3)
-	@lista_enlazada.push_principio(@nodo3, @nodo4)
+ 	@nodo1=Nodo.new(@preg1, nil,nil)
+ 	@nodo2=Nodo.new(@preg2, nil,nil)
+	@nodo3=Nodo.new(@preg3, nil,nil)
+ 	@nodo4=Nodo.new(@preg4, nil,nil)
+	@lista_enlazada.push_principio(@nodo1)
+ 	@lista_enlazada.push_principio(@nodo2)					
+  	@lista_enlazada.push_principio(@nodo3)
+	@lista_enlazada.push_principio(@nodo4)
 	
-      end
+    end
       
-      def pop()
-	puntuacion =@lista_enlazada.pop_principio()
-      end
+    def pop()
+	  puntuacion =@lista_enlazada.pop_principio()
+    end
 
 
 

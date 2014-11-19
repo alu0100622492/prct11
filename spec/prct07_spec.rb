@@ -228,9 +228,19 @@ describe Prct07::Lista_doble do
 		it "Metodo max con el metodo Enumerable" do
 		    expect(@lista_doble.max).to eq(nil)
 		end
+    end
+end
+
+describe Prct07::Inter_user do
+  before :each do	
+  	@insta = Prct07::Inter_user.new()
+   end
+	    context "Pruebas para la clase Inter_user  \n" do
+	    
+	    it "Examen ancestor" do
+                 expect(@insta.class.ancestors) == Kernel     
+	    end
 		
 	end
-
-
 
 end
