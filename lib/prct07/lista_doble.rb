@@ -8,7 +8,7 @@ module Prct07
       include Enumerable
     #cabeza = head ultelem = ultcola
     
-    attr_accessor :head, :ultcola,:valor, :siguiente, :anterior
+    attr_accessor :head, :ultcola,:valor, 
     
     
     def initialize(n=nil, m=nil)
@@ -19,62 +19,44 @@ module Prct07
     
     def each()
         temp=@head
-        while temp != nil
+        while (temp != nil) do
         yield temp.valor
         temp=temp.siguiente 
         end
     end
     
     def push_principio(args)
-      if @head== nil 
-	head=args
+      if @head == nil 
+	@head=args
       else
-	args.siguiente = head
-	head = args
+	args.siguiente = @head
+	@head.anterior = args
+	@head = args
+	args.anterior = nil
       end
     end 
    
    
-    def push_final(args)
-        if @ultcola== nil
-            ultcola=args
-        else
-            args.anterior = ultcola
-            ultcola=args
-        end
-    end
     
     
-    def insertar_mitad_delante(nodoe,nodon)
-        temp=@head
-        while temp != nodoe
-        temp.siguiente
-        end
-        temp=head.anterior
-        head.anterior=nodon.siguiente
-        temp.siguiente=nodon
-        nodon.siguiente=head
-        nodon.anterior=temp
-    end
     
+   def push_final(args)
+       if @head == nil
+	 @head = args
+       else
+	  @head.siguiente = args
+	  args.anterior = @head
+	  @head = args
+       end
+   end
     
-    def insertar_mitad_detras(nodoe,nodon)
-        temp=@ultcola
-        while temp  != nodoe
-        temp.anterior
-        end
-        temp=ultcola.siguiente
-        ultcola.siguiente=nodon
-        nodon.siguiente=temp
-        temp.anterior=nodon
-        nodon.anterior=ultcola
-    
-    end
     
     def pop_principio()
-      if @head!=nil
-	elimina = head
-	head = head.siguiente  
+      if @head != nil
+	elimina = @head
+	@head = @head.siguiente  
+	@head.anterior = nil
+	elimina.siguiente = nil
 	elimina.valor
       else
 	puts 'No habia nada en la lista enlazada'
@@ -82,31 +64,21 @@ module Prct07
       end
     end
    
-   
-   
     def pop_final()
-        if @ultcola!= nil
-            elimina = ultcola
-            ultcola = ultcola.anterior
-            elimina.valor
-        else
-            puts 'No habia nada en la lista enlazada'
-            return nil
-        end
+      if (@ultcola!= nil)#si la lista tiene mas de un elemento
+	    aux = @ultcola
+	    @ultocola = @ultcola.anterior
+	    @ultocola.siguiente = nil
+	    aux.anterior = nil
+	    aux.valor
+	  else
+	     puts 'No habia nada en la lista enlazada'
+         return nil
+	  end
     end
+   
  
-    def pop_medio(nodo)
-    temp=@head
-    while temp !=nodo
-        temp.siguiente
-    end
-    temp1=nodo.anterior
-    temp2=nodo.siguiente
-    temp1.siguiente=temp2
-    temp2.anterior=temp1
-    elimina=nodo.valor
-  
-    end
+    
   end
         
 end
