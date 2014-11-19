@@ -91,24 +91,19 @@ describe Prct07::Lista_doble do
  			@nodo6=Prct07::Nodo.new(@preg6, nil,nil)
  				
         end	
-  	context "Creacion de lista;" do
-  	      it"Empujamos al principio" do
-  	         
+  	 context "Creacion de lista;" do
+  	       it"Empujamos al principio" do
+  	       
   	      @lista_doble.push_principio(@nodo1)
   	      @lista_doble.push_principio(@nodo2)
   	      @lista_doble.push_principio(@nodo3)
   	      @lista_doble.push_principio(@nodo4)
   	      @lista_doble.push_principio(@nodo5)
   	      @lista_doble.push_principio(@nodo6)
-  	      end 
-  	      it"Eliminamos al final" do
-  	      @lista_doble.pop_final
-  	      end
-  	      it "existe un metodo insertar_mitad_delante" do
- 		  expect(@lista_doble).to respond_to :insertar_mitad_delante
-          end
-    end
-     
+  	      @lista_doble.pop_principio()
+  	       end 
+  	 end   
+
      
      context "Pruebas de la clase SimpleExpec con Comparable \n" do
              it "Pertenece la pregunta a la clase SimpleExpec" do
@@ -223,7 +218,7 @@ describe Prct07::Lista_doble do
 		end
 		
 		it "Metodo count con el metodo Enumerable" do
-		   expect( @lista_doble.count).to eq(0)
+		  expect( @lista_doble.count).to eq(0)
 		end
 		
 		it "Metodo all con el metodo Enumerable" do
@@ -235,7 +230,6 @@ describe Prct07::Lista_doble do
 		end
 		
 	end
-
 
 
 
