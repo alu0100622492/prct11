@@ -53,7 +53,7 @@ module Prct07
  	@lista_enlazada.push_principio(@nodo1, @nodo2)					
   	@lista_enlazada.push_principio(@nodo2, @nodo3)
 	@lista_enlazada.push_principio(@nodo3, @nodo4)
-	@lista_enlazada.push_principio(@nodo4, @nodo5)
+	
       end
       
       def pop()

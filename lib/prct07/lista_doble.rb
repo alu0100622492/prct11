@@ -25,16 +25,37 @@ module Prct07
         end
     end
     
-    def push_principio(args)
-      if @head == nil 
-	@head=args
-      else
-	args.siguiente = @head
-	@head.anterior = args
-	@head = args
-	args.anterior = nil
-      end
-    end 
+    
+def push_principio(esta,nuevo)
+    if @head == nil 
+    	@head=nuevo
+        elsif esta==nil 
+	    nuevo.siguiente = @head
+	    @head.anterior = nuevo
+	    #suponemos que nuevo anterio ya es nulo
+    else
+	aux=@head
+	while aux.valor =! esta.valor 
+	 aux.siguiente = aux
+	end  
+	 #aux2=@head
+	 aux2=aux.anterior
+	 aux.anterior=nuevo.siguiente
+	 aux2.siguiente=nuevo
+	 nuevo.siguiente=aux
+	 nuevo.anterior=aux2
+     end
+end
+#     def push_principio(args)
+#       if @head == nil 
+# 	@head=args
+#       else
+# 	args.siguiente = @head
+# 	@head.anterior = args
+# 	@head = args
+# 	args.anterior = nil
+#       end
+#     end 
    
    
     
