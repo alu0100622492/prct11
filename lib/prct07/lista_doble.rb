@@ -18,13 +18,50 @@ module Prct07
     
     
     def each()
-        temp=@head
-        while (temp != nil) do
-        yield temp.valor
-        temp=temp.siguiente 
+        if(@head !=nil)
+           @temp=@head
+             while (@temp != nil) do
+             yield @temp.valor
+             @temp=@temp.siguiente 
+             end
         end
     end
+  
+  
+  
+    def pop_principio()
+      if @head != nil
+	        @elimina = @head
+	        @head = @head.siguiente  
+	        #@head.anterior = nil
+	        @elimina.siguiente = nil
+	        @elimina.valor
+	        #puts "pop"
+      else
+	        puts 'No habia nada en la lista enlazada'
+	        return nil
+      end
+    end   
     
+    def push_principio(args)
+      if @head == nil 
+	     @temp=Nodo.new(args,nil,nil)
+         @head=@temp
+      else
+          @temp=Nodo.new(args,nil,nil)
+	      @head.anterior=@temp
+	      @temp.siguiente = @head
+          @head=@temp
+	      #@head.anterior = args
+	      #@head = args
+	      #args.anterior = nil
+	      #puts "push_p"
+      end
+    end 
+    
+  end
+        
+end
     
 # def push_principio(esta,nuevo)
 #     if @head == nil 
@@ -48,64 +85,46 @@ module Prct07
 # end
 
 
-    def push_principio(args)
-#       if @head == nil 
-# 	@head=args
+    
+   
+#   def push_principio(args)
+#       if (@head == nil)
+#           @head=args
+#           @ultcola = args
 #       else
-# 	args.siguiente = @head
-# 	#@head.anterior = args
-# 	#@head = args
-# 	args.anterior = nil
-# 	#puts "push_p"
+#           args.siguiente=@head
+#           #@head.anterior=args
+#           @head = args
 #       end
-    end 
-   
-   
-    
-    
-    
-   def push_final(args)
-       if @head == nil
-	 @head = args
-       else
-	  @head.siguiente = args
-	  args.anterior = @head
-	  @head = args
-       end
-   end
-    
-    
-    def pop_principio()
-      if @head != nil
-	elimina = @head
-	#@head = @head.siguiente  
-	@head.anterior = nil
-	elimina.siguiente = nil
-	elimina.valor
-	#puts "pop"
-      else
-	puts 'No habia nada en la lista enlazada'
-	return nil
-      end
-    end
+#   end
    
     
     
-    def pop_final()
-      if (@ultcola!= nil)#si la lista tiene mas de un elemento
-	    aux = @ultcola
-	    @ultocola = @ultcola.anterior
-	    @ultocola.siguiente = nil
-	    aux.anterior = nil
-	    aux.valor
-	  else
-	     puts 'No habia nada en la lista enlazada'
-         return nil
-	  end
-    end
+    
+#   def push_final(args)
+#       if @head == nil
+# 	 @head = args
+#       else
+# 	  @head.siguiente = args
+# 	  args.anterior = @head
+# 	  @head = args
+#       end
+#   end
+    
+   
+    
+    
+#     def pop_final()
+#       if (@ultcola!= nil)#si la lista tiene mas de un elemento
+# 	    aux = @ultcola
+# 	    @ultocola = @ultcola.anterior
+# 	    @ultocola.siguiente = nil
+# 	    aux.anterior = nil
+# 	    aux.valor
+# 	  else
+# 	     puts 'No habia nada en la lista enlazada'
+#          return nil
+# 	  end
+#     end
    
  
-    
-  end
-        
-end

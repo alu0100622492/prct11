@@ -1,5 +1,5 @@
 module Prct07 
-    class VerdFals < Preg
+    class VerdFals < Prct07::Preg
         		attr_accessor :verd, :fals
 	 def initialize(args)
 	    super(args[:text])

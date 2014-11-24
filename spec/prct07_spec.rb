@@ -3,32 +3,6 @@ require 'prct07'
 #Crear it para saber de que clase son las pruebas
 #introducir todas las preguntas hechas practica anterior
 #describe Prct07 do
-
-    describe Prct07::SimpleExpec do
-            before :each do
-		
-			@lista_doble = Prct07::Lista_doble.new
-             
-         	@preg1=Prct07::SimpleExpec.new(
-				      :text => "salida de :  class Objeto \n     end",
-				      :right => "Una instancia de la clase Class",
-				      :distractor => ['una constante', 'un objeto', 'ninguna de las anteriores'])
-				
-	        @nodo1=Prct07::Nodo.new(@preg1, nil,nil)    
-            end	
-
-    end
-    describe Prct07::VerdFals do
-        
- 				@preg2=Prct07::VerdFals.new(
- 				      :text => "Es apropiado que una clase tablero herede de la clase juego? ",
- 				      :verd => "Falso", 
- 				      :fals => ['Cierto'])
- 				
- 				@nodo2=Prct07::Nodo.new(@preg2, nil,nil)
-    end
- 	           
- 	           
 describe Prct07::Lista_doble do
   before :each do
 		
@@ -36,7 +10,7 @@ describe Prct07::Lista_doble do
              
          	@preg1=Prct07::SimpleExpec.new(
 				      :text => "salida de :  class Objeto \n     end",
-				      :right => "Una instancia de la clase Class",
+				      :verd => "Una instancia de la clase Class",
 				      :distractor => ['una constante', 'un objeto', 'ninguna de las anteriores'])
 				
 	        @nodo1=Prct07::Nodo.new(@preg1, nil,nil)   
@@ -54,7 +28,7 @@ describe Prct07::Lista_doble do
  					:text => "salida de : 
  					class Xyz \n def pots\n
  					@nice\n end\nend\n",
- 					:right => 'nil',
+ 					:verd => 'nil',
  				 	:distractor => ['#<Xyz:0x00000002bf0ed0>',0, "ninguna de las anteriores" ])
  
  			@nodo3=Prct07::Nodo.new(@preg3, nil,nil)
@@ -78,7 +52,7 @@ describe Prct07::Lista_doble do
  				      end
  				      end \n
  				      p[1,, bob].say_hi", 
- 				      :right => "Ninguna de las anteriores",
+ 				      :verd => "Ninguna de las anteriores",
  				      :distractor => ['1', 'bob', 'HEY!'])
  				      
  			@nodo5=Prct07::Nodo.new(@preg5, nil,nil)
@@ -187,11 +161,11 @@ describe Prct07::Lista_doble do
             expect(@lista_doble.head) == (@nodo2)
         end
 		
-		it "Insertar varios elementos por el final" do
-            @lista_doble.push_final(@nodo1)
-            @lista_doble.push_final(@nodo2)
-            expect(@lista_doble.ultcola) == (@nodo1)
-        end
+		#it "Insertar varios elementos por el final" do
+  		#@lista_doble.push_final(@nodo1)
+  		#@lista_doble.push_final(@nodo2)
+  		#expect(@lista_doble.ultcola) == (@nodo1)
+  		#end
 
 	    it "Extraer el primer elemento de la lista" do
 		    @lista_doble.push_principio(@nodo1)
@@ -200,18 +174,18 @@ describe Prct07::Lista_doble do
             expect(@lista_doble.head) == (@nodo2)	
 	    end
 		
-		it "Extrar el ultimo elemento de la lista" do
-		    @lista_doble.push_final(@nodo1)
-            @lista_doble.push_final(@nodo2)
-            @lista_doble.pop_final
-            expect(@lista_doble.ultcola) == (@nodo2)	
-	    end
+		# it "Extrar el ultimo elemento de la lista" do
+		#@lista_doble.push_final(@nodo1)
+		#@lista_doble.push_final(@nodo2)
+		#@lista_doble.pop_final
+		#expect(@lista_doble.ultcola) == (@nodo2)	 
+		# end
 		
-		it "Insertar por el final de la lista" do
-		    @lista_doble.push_final(@nodo1)
-            @lista_doble.push_final(@nodo2)
-            expect(@lista_doble.ultcola) == (@nodo2)	
-	    end
+		#it "Insertar por el final de la lista" do
+		#    @lista_doble.push_final(@nodo1)
+        #    @lista_doble.push_final(@nodo2)
+        #    expect(@lista_doble.ultcola) == (@nodo2)	
+	    #end
 		
 		it "Metodo each con el metodo Enumerable" do
 		    @lista_doble.each{|i| i}
@@ -231,16 +205,150 @@ describe Prct07::Lista_doble do
     end
 end
 
+describe Prct07::Exam do
 describe Prct07::Inter_user do
-  before :each do	
-  	@insta = Prct07::Inter_user.new()
-   end
-	    context "Pruebas para la clase Inter_user  \n" do
-	    
-	    it "Examen ancestor" do
-                 expect(@insta.class.ancestors) == Kernel     
-	    end
-		
-	end
 
+    before :each do	
+  	@list= Prct07::Lista_doble.new
+   
+			@preg1=Prct07::SimpleExpec.new(
+				      :text => "salida de :  class Objeto \n     end",
+				      :verd => "Una instancia de la clase Class",
+				      :distractor => ['una constante', 'un objeto', 'ninguna de las anteriores'])
+				
+	        @preg2=Prct07::VerdFals.new(
+ 				      :text => "Es apropiado que una clase tablero herede de la clase juego? ",
+ 				      :verd => "Falso", 
+ 				      :fals => ['Cierto'])
+ 				
+ 			
+ 		    @preg3=Prct07::SimpleExpec.new(
+ 					:text => "salida de : 
+ 					class Xyz \n def pots\n
+ 					@nice\n end\nend\n",
+ 					:verd => 'nil',
+ 				 	:distractor => ['#<Xyz:0x00000002bf0ed0>',0, "ninguna de las anteriores" ])
+ 
+ 				
+ 			@preg4=Prct07::VerdFals.new(
+ 				      :text => "salida de :
+ 				      hash_raro ={ \n
+ 				      [1, 2, 3] => Object.new(), \n
+ 				      Hash.new => :toto
+ 				      }", 
+ 				      :verd => "Cierto", 
+ 				      :fals => "Falso" )
+ 				      
+ 				      
+ 				@list.push_principio(@preg1)
+ 				@list.push_principio(@preg2)
+ 				@list.push_principio(@preg3)
+ 				@list.push_principio(@preg4)
+		
+			
+			@examen = Prct07::Exam.new(@list)
+			
+			
+			
+			@interfaz= Prct07::Inter_user.new(@list)
+			@interfaz.examen.seleccion = ["Cierto", 'nil', "Falso","Una instancia de la clase Class"]
+
+	end
+    
+    context "Pruebas de la clase examen e interfaz de usuario" do
+	      it "Existe una clase examen" do
+		expect(@examen.class).to eq Prct07::Exam
+	      end
+	      
+	      it "La clase examen tiene una lista de preguntas" do
+		expect(@examen.lista_enlazada.class).to eq Prct07::Lista_doble
+	      end
+	      
+	      it "La clase interfaz tiene un atributo de la clase examen" do
+		expect(@interfaz.examen.class) == Prct07::Exam
+	      end
+	      
+	      it "La examen tiene un atributo de tipo Lista doble" do
+		expect(@interfaz.examen.lista_enlazada.class) == Prct07::Lista_doble
+	      end
+		       
+	      
+	      #nota =10
+	      it "La clase examen te dice si estas aprobado" do
+		@interfaz.mostrar(["Cierto", 'nil', "Falso","Una instancia de la clase Class"])
+		expect(@interfaz.puntuacion)== (true)
+	      end
+	      
+	      #nota = 0	
+	      it "La clase examen te dice si estas aprobado" do
+		@interfaz.examen.seleccion = ["Verdadero","Una instancia de la clase Class", "Ninguna de las anteriores", "Cierto"]
+		@interfaz.mostrar(@interfaz.examen.seleccion)
+		expect(@interfaz.puntuacion)== (true)
+	      end
+  
+	
+	    it "Pertenece a la clase lista_enlazada " do
+	      expect(@examen.class.ancestors) == Kernel
+	    end
+	    it "Donde pertenece" do
+	      expect(@examen.class.superclass) == Object
+	    end  
+	    
+	end
+    
+    
+end   
 end
+
+#     context "Pruebas para la clase Inter_user  \n" do
+	    
+	#     it "Examen ancestor" do
+ #                expect(@insta.class.ancestors) == Kernel     
+	#     end
+	#     it "Interfaz users" do
+	#     	@lista_enlazada=Prct07::Lista_doble.new()
+	    	
+	#      	@lista_enlazada.push_principio(@nodo1)
+	# 	    @lista_enlazada.push_principio(@nodo2)
+ #           @lista_enlazada.push_principio(@nodo3)
+ #           #@lista_enlazada.pop_final()
+ #           @Inter_user=Prct07::Inter_user.new(1)
+ #           #@Inter_user.mostrar()
+	#     end
+		
+	# end
+
+ # before :each do	
+ # 	@instance = Prct07::Exam.new()
+ #  end
+	#     context "Pruebas para la clase Exam  \n" do
+	    
+	#     it "Examen ancestor" do
+ #                expect(@instance.class.ancestors) == Kernel     
+	#     end
+		
+	# end
+
+   # describe Prct07::SimpleExpec do
+   #         before :each do
+		
+			# @lista_doble = Prct07::Lista_doble.new
+             
+   #      	@preg1=Prct07::SimpleExpec.new(
+			# 	      :text => "salida de :  class Objeto \n     end",
+			# 	      :right => "Una instancia de la clase Class",
+			# 	      :distractor => ['una constante', 'un objeto', 'ninguna de las anteriores'])
+				
+	  #      @nodo1=Prct07::Nodo.new(@preg1, nil,nil)    
+   #         end	
+
+   # end
+   # describe Prct07::VerdFals do
+        
+ 		# 		@preg2=Prct07::VerdFals.new(
+ 		# 		      :text => "Es apropiado que una clase tablero herede de la clase juego? ",
+ 		# 		      :verd => "Falso", 
+ 		# 		      :fals => ['Cierto'])
+ 				
+ 		# 		@nodo2=Prct07::Nodo.new(@preg2, nil,nil)
+   # end

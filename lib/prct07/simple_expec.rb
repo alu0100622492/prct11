@@ -1,17 +1,17 @@
 require 'pry'
 
 module Prct07 
-	class SimpleExpec < Preg
-		attr_accessor :right, :distractor
+	class SimpleExpec < Prct07::Preg
+		attr_accessor :verd, :distractor
 	 def initialize(args)
 		super(args[:text])
-		@right = args[:right]
-		raise ArgumentError, 'Specify :right' unless @right
+		@verd = args[:verd]
+		raise ArgumentError, 'Specify :right' unless @verd
 		@distractor = args[:distractor]
 		raise ArgumentError, 'Specify :distractor' unless @distractor
 	 end
 	 def to_html
-		options = @distractor+[@right]
+		options = @distractor+[@verd]
 		options = options.sample       # Metodo que baraja un array
 		options = ''
 		options.each do |options|
@@ -23,7 +23,7 @@ module Prct07
 		end
 	 end
 	 def to_s
-	     "#{@text}#{@right}#{@distractor}"
+	     "#{@text}#{@verd}#{@distractor}"
 	 end
 	 
 	 def <= (other)
