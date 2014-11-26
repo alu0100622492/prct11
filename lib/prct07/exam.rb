@@ -2,13 +2,13 @@ module Prct07
     class Exam
         ##La clase examen tiene una lista hecha en el spec y las respuetas correctas que guarda el user
         
-       attr_accessor :lista_enlazada, :seleccion
+       attr_accessor :lista_enlazada , :seleccion_presentados
       
    #Nodo = Struct.new(:valor, :antes,:siguiente )
      
       def initialize(lista)
         @lista_enlazada=lista
-        @seleccion=[]
+        @seleccion_presentados=[]
       end
     end
 end    

@@ -251,7 +251,7 @@ describe Prct07::Inter_user do
 			
 			
 			@interfaz= Prct07::Inter_user.new(@list)
-			@interfaz.examen.seleccion = ["Cierto", 'nil', "Falso","Una instancia de la clase Class"]
+			@interfaz.examen.seleccion_presentados = ["Cierto", 'nil', "Falso","Una instancia de la clase Class"]
 
 	end
     
@@ -268,7 +268,7 @@ describe Prct07::Inter_user do
 		expect(@interfaz.examen.class) == Prct07::Exam
 	      end
 	      
-	      it "La examen tiene un atributo de tipo Lista doble" do
+	      it "El examen tiene un atributo de tipo Lista doble" do
 		expect(@interfaz.examen.lista_enlazada.class) == Prct07::Lista_doble
 	      end
 		       
@@ -278,11 +278,25 @@ describe Prct07::Inter_user do
 		@interfaz.mostrar(["Cierto", 'nil', "Falso","Una instancia de la clase Class"])
 		expect(@interfaz.puntuacion)== (true)
 	      end
-	      
+	      #nota 7.5
+	      it "La clase examen te dice si estas aprobado" do
+		@interfaz.mostrar(["Cierto",'nil',"Cierto","Una instancia de la clase Class"])
+		expect(@interfaz.puntuacion)== (true)
+	      end
+	      #nota5
+	      it "La clase examen te dice si estas aprobado" do
+		@interfaz.mostrar(['nil',"Cierto", "Falso","Una instancia de la clase Class"])
+		expect(@interfaz.puntuacion)== (true)
+	      end
+	      #nota2.5
+	      it "La clase examen te dice si estas aprobado" do
+		@interfaz.mostrar(["Falso", 'nil', "Cierto",'Una constante'])
+		expect(@interfaz.puntuacion)== (true)
+	      end
 	      #nota = 0	
 	      it "La clase examen te dice si estas aprobado" do
-		@interfaz.examen.seleccion = ["Verdadero","Una instancia de la clase Class", "Ninguna de las anteriores", "Cierto"]
-		@interfaz.mostrar(@interfaz.examen.seleccion)
+		@interfaz.examen.seleccion_presentados = ["Verdadero","Una instancia de la clase Class", "Ninguna de las anteriores", "Cierto"]
+		@interfaz.mostrar(@interfaz.examen.seleccion_presentados)
 		expect(@interfaz.puntuacion)== (true)
 	      end
   

@@ -31,16 +31,17 @@ module Prct07
 	    else
 		return false
 	    end
-    
+    @acertadas=0
+    @desacertadas=0
     
         
     end
     
  
  
-    def puntuacion
+    def puntuacion()
       puts "\nSu nota es #{@acertadas}\n"
-	  if (@acertadas> @desacertadas)
+	  if (@acertadas>= @desacertadas)
 	      puts "El examen ha sido pasado con exito"
 	      return true
 	  else
