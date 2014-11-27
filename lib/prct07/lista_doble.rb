@@ -27,7 +27,14 @@ module Prct07
 #         end
 #         return @listareves
 #     end
-    
+    def reverse_lista
+	  @lista_reverse = Prct07::Lista_doble.new
+	  self.each_with_index do |n|
+	       @lista_reverse.push_principio(n)
+	       puts"hola"
+	      end
+	  return @lista_reverse
+    end    
     
 # def reverse_lista(lista)
 #       @listareves=Prct07::Lista_doble.new
