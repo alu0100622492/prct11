@@ -52,7 +52,7 @@ module Prct07
     def reverse_lista
 	  @lista_reverse = Prct07::Lista_doble.new
 	  self.each_with_index do |n|
-	       @lista_reverse.push_principio(n)
+	       @lista_reverse.push_principio(pop_principio())
 	       puts"reverse"
 	      end
 	  return @lista_reverse

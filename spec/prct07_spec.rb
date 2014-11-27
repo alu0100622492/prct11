@@ -303,22 +303,24 @@ describe Prct07::Lista_doble do
 		it "Comprobamos si el metodo reverse funciona" do
 			
 		@listaprueba = Prct07::Lista_doble.new
-		# @listaprueba.push_principio(@preg4)
-		# @listaprueba.push_principio(@preg3)
-		@listaprueba.push_principio(@preg1)
+		#@listaprueba.push_principio(@preg4)
+		#@listaprueba.push_principio(@preg3)
+		@listaprueba.push_principio(@preg2)
 		@listaprueba.push_principio(@preg1)
 			
 	
 		@a = Prct07::Lista_doble.new
 		@a.push_principio(@preg1)
-		@a.push_principio(@preg1)
-		# @a.push_principio(@preg3)
-	    # @a.push_principio(@preg4)
+		@a.push_principio(@preg2)
+		#@a.push_principio(@preg3)
+	    #@a.push_principio(@preg4)
 	    @a.reverse_lista
 	    	
 	    #expect(@listaprueba.pop_principio()).to eq (@pepe.pop_principio())
 	    expect(@listaprueba.head.valor).to eq (@a.head.valor)
 	    expect(@listaprueba.head.valor).to eq (@a.head.valor)
+	    #expect(@listaprueba.head.valor).to eq (@a.head.valor)
+	    #expect(@listaprueba.head.valor).to eq (@a.head.valor)
 		
 		
 	#	expect(@listaprueba.pop_principio()).to eq(@listaprueba.pop_principio())
