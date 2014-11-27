@@ -1,3 +1,6 @@
+#===Class Inter_user
+#*def initialize,def mostrar, def puntacion
+
 module Prct07
   class Inter_user
         #en el spec cargar el examen y mostrar el examen al usuario y en la clase hago el metodo mostrar, debe recogerse las opcione dl usuario, l paso una lista d respuestas correctas al spec y 

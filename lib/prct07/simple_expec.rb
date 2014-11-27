@@ -1,3 +1,6 @@
+#===Class SimpleExpec
+#* def initialize, def to_html, def <=, def >=, def to_s
+
 require 'pry'
 
 module Prct07 

@@ -1,3 +1,5 @@
+#===Class Preg
+#*def initialize, def <=>
 module Prct07
   
   class Preg

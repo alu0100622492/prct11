@@ -1,3 +1,5 @@
+#===class Examn
+#*def initialize
 module Prct07
     class Exam
         ##La clase examen tiene una lista hecha en el spec y las respuetas correctas que guarda el user

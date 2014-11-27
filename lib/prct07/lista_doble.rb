@@ -1,3 +1,8 @@
+#===Class Lista_doble
+#*def initialize, def each, def reverse_lista
+#def pop_principio, def push_principio
+
+
 module Prct07
 
 
@@ -37,7 +42,14 @@ module Prct07
     
     
     
-   
+    def reverse_lista
+	  @lista_reverse = Prct07::Lista_doble.new
+	  self.each_with_index do |n|
+	       @lista_reverse.push_principio(n)
+	       puts"reverse"
+	      end
+	  return @lista_reverse
+    end
 
     
     

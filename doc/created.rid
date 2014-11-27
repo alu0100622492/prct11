@@ -1,0 +1,18 @@
+Thu, 27 Nov 2014 13:38:39 +0000
+./LICENSE.txt	Wed, 05 Nov 2014 17:51:16 +0000
+./Gemfile.lock	Wed, 19 Nov 2014 20:52:47 +0000
+./README.md	Thu, 13 Nov 2014 13:31:37 +0000
+./lib/prct07.rb	Thu, 27 Nov 2014 12:27:28 +0000
+./lib/prct07/verd_fals.rb	Thu, 27 Nov 2014 13:38:15 +0000
+./lib/prct07/exam.rb	Thu, 27 Nov 2014 13:34:16 +0000
+./lib/prct07/preg.rb	Thu, 27 Nov 2014 13:36:52 +0000
+./lib/prct07/version.rb	Wed, 05 Nov 2014 17:51:16 +0000
+./lib/prct07/simple_expec.rb	Thu, 27 Nov 2014 13:37:52 +0000
+./lib/prct07/inter_user.rb	Thu, 27 Nov 2014 13:35:25 +0000
+./lib/prct07/lista_doble.rb	Thu, 27 Nov 2014 13:36:15 +0000
+./Gemfile	Wed, 19 Nov 2014 20:47:44 +0000
+./spec/spec_helper.rb	Wed, 05 Nov 2014 18:04:54 +0000
+./spec/prct07_spec.rb	Thu, 27 Nov 2014 13:32:30 +0000
+./Guardfile	Thu, 06 Nov 2014 14:34:22 +0000
+./prct07.gemspec	Thu, 06 Nov 2014 14:33:40 +0000
+./Rakefile	Thu, 06 Nov 2014 10:19:48 +0000

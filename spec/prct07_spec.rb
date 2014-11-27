@@ -322,7 +322,6 @@ describe Prct07::Lista_doble do
 		
 		
 	#	expect(@listaprueba.pop_principio()).to eq(@listaprueba.pop_principio())
-		
  	#	expect(@listaprueba.pop_principio()).to eq (@a.pop_principio())
  	#	expect(@listaprueba.pop_principio()).to eq (@a.pop_principio())
  	#	expect(@listaprueba.pop_principio()).to eq (@a.pop_principio())

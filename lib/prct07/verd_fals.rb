@@ -1,3 +1,6 @@
+#===Class VerdFals
+#* def initialize, def <=, def >=, def to_s
+
 module Prct07 
     class VerdFals < Prct07::Preg
         		attr_accessor :verd, :fals
