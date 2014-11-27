@@ -1,5 +1,6 @@
 module Prct07
-     
+
+
 
   Nodo = Struct.new(:valor, :siguiente,:anterior)
 
@@ -8,13 +9,36 @@ module Prct07
       include Enumerable
     #cabeza = head ultelem = ultcola
     
-    attr_accessor :head, :ultcola,:valor, 
+    attr_accessor :head, :ultcola,:valor,:lista1
     
     
-    def initialize(n=nil, m=nil)
-   	@head=n
-	@ultcola=m
+    
+    def initialize
+   	@head= nil
+	@ultcola=nil
+	#@lista_reverse = nil
     end
+          
+          
+#   def reverse_lista(lista)
+#         @listareves=Prct07::Lista_doble.new
+#         @lista.reverse_each do |n|
+#             @listareves.push_principio(n)
+#         end
+#         return @listareves
+#     end
+    
+    
+# def reverse_lista(lista)
+#       @listareves=Prct07::Lista_doble.new
+#     return Proc.new{ |n| listareves.push_principio(n) }
+#     reverse_lista
+# end
+    
+    
+    
+   
+
     
     
     def each()
@@ -59,9 +83,25 @@ module Prct07
       end
     end 
     
+    
+    
+
+
+    
+    
+    # @lista1=Prct07::Lista_doble.new
+    # puts"aaaaq!"
+    # @lista1.push_principio(@preg1)
+    # @lista1.push_principio(@preg2)
+    # @lista1.reverse_lista
+        
+    
+    
   end
         
 end
+
+
     
 # def push_principio(esta,nuevo)
 #     if @head == nil 

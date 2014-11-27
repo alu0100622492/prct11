@@ -1,7 +1,7 @@
 module Prct07
   
-  include Comparable
   class Preg
+    include Comparable
 
     attr_accessor :text
 
@@ -9,6 +9,7 @@ module Prct07
       @text= args
     end
     def <=>(other)
+      
     end
   end
 end

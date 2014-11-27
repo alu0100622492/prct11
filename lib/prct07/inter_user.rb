@@ -12,6 +12,8 @@ module Prct07
       @acertadas = 0
       @desacertadas = 0
     end 
+    
+    
     #args son mis respuestas
     def mostrar(args)
         aux = @examen.lista_enlazada.head
