@@ -303,8 +303,8 @@ describe Prct07::Lista_doble do
 		it "Comprobamos si el metodo reverse funciona" do
 			
 		@listaprueba = Prct07::Lista_doble.new
-		#@listaprueba.push_principio(@preg4)
-		#@listaprueba.push_principio(@preg3)
+		@listaprueba.push_principio(@preg4)
+		@listaprueba.push_principio(@preg3)
 		@listaprueba.push_principio(@preg2)
 		@listaprueba.push_principio(@preg1)
 			
@@ -312,28 +312,60 @@ describe Prct07::Lista_doble do
 		@a = Prct07::Lista_doble.new
 		@a.push_principio(@preg1)
 		@a.push_principio(@preg2)
-		#@a.push_principio(@preg3)
-	    #@a.push_principio(@preg4)
-	    @a.reverse_lista
+		@a.push_principio(@preg3)
+	    @a.push_principio(@preg4)
+	    @ab=@a.reverse_lista
 	    	
-	    #expect(@listaprueba.pop_principio()).to eq (@pepe.pop_principio())
-	    expect(@listaprueba.head.valor).to eq (@a.head.valor)
-	    expect(@listaprueba.head.valor).to eq (@a.head.valor)
-	    #expect(@listaprueba.head.valor).to eq (@a.head.valor)
-	    #expect(@listaprueba.head.valor).to eq (@a.head.valor)
+	    expect(@listaprueba.head.valor).to eq(@ab.head.valor)
+	    expect(@listaprueba.pop_principio()).to eq (@ab.pop_principio())
+	    expect(@listaprueba.pop_principio()).to eq (@ab.pop_principio())
+	    expect(@listaprueba.pop_principio()).to eq (@ab.pop_principio())
+	    expect(@listaprueba.pop_principio()).to eq (@ab.pop_principio())
+
+	     
 		
-		
-	#	expect(@listaprueba.pop_principio()).to eq(@listaprueba.pop_principio())
- 	#	expect(@listaprueba.pop_principio()).to eq (@a.pop_principio())
- 	#	expect(@listaprueba.pop_principio()).to eq (@a.pop_principio())
- 	#	expect(@listaprueba.pop_principio()).to eq (@a.pop_principio())
- 	#	expect(@listaprueba.pop_principio()).to eq (@a.pop_principio())
- 	#	expect(@listaprueba.pop_principio()).to eq (@a.pop_principio())
+
 	     
 	      end
     end
 end    
 end   
+end
+
+describe Prct07::Quiz do
+	describe Prct07::Question do
+		context "Pruebas de las clase Question y Quiz DSL" do
+			@quiz = Prct07::Quiz.new("Cuestionario de LPP 11/12/14"){
+    	question '!Cuantos argumentos de tipo bloque puede recibir un metodo?',
+        :right => '1',
+        :wrong => []
+    	wrong '2'
+    	wrong 'muchos'
+    	wrong 'los que defina el usuario'
+        
+    	question '!En Ruby los bloque son objetos que continen codigo?',
+        :right =>'Falso',
+        :wrong => []
+    	wrong 'Cierto'
+    	question  "salida de :  class Objeto \n     end",
+		:right => "Una instancia de la clase Class",
+		:wrong => []
+		wrong  'una constante'
+		wrong  'un objeto'
+		wrong 'ninguna de las anteriores'
+    
+}
+			  it "Pertenece la pregunta a la clase Quiz" do
+                expect(@quiz.class) == Prct07::Quiz
+        	  end
+	    	  it "Debe tener un metodo to_s" do
+               expect(@quiz).to respond_to :to_s       
+	    	  end
+	    	  #it "Tiene un metodo wrong" do
+	    	  #	expect(@quiz).to respond_to :wrong
+        	  #end
+		end
+	end
 end
 
 #     context "Pruebas para la clase Inter_user  \n" do
