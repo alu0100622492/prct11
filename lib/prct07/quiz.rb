@@ -30,24 +30,24 @@ class Quiz
 
 
   def initialize(title, &block)
-    self.title = title
-    self.arquestions = []
+    @title = title
+    @arquestions = []
     instance_eval &block 
   end
  
   def question(text, options = {})
     question = Question.new(text,options)
-    arquestions << question
+    @arquestions << question
   end
   
   def wrong (option)
-    self.arquestions[-1].answer[:wrong] << option
+    @arquestions[-1].answer[:wrong] << option
   end
   
   def run
     temp = title
     temp << "\n"
-    arquestions.each_with_index do |question, index|
+    @arquestions.each_with_index do |question, index|
       temp << "#{index+ 1})#{question}\n"
     end
     temp
